@@ -1,6 +1,7 @@
 'use client';
 
 import { Main } from '@/components/Main';
+import { Type } from '@/components/Main/Section';
 import { useState } from 'react';
 
 export default function Home() {
@@ -9,6 +10,22 @@ export default function Home() {
     'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
     'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
   ];
+
+  const dataHorta = [
+    {
+      title: 'Hortaliças para Plantar',
+      tipo: Type.HORTALICAS, 
+      children:<div>Ola</div>
+    } ,
+    {
+      title: 'Frutíferas para Plantar',
+      tipo: Type.FRUTIFERAS,  
+    },
+    {
+      title: 'Época de Poda',
+      tipo: Type.PODA,  
+    }
+  ]
 
   return (
     <main className="min-h-screen p-8 bg-green-50">
@@ -30,23 +47,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* <div className="grid md:grid-cols-2 gap-8">
-            <section className="bg-green-50 p-6 rounded-lg">
-              <h2 className="text-2xl font-semibold text-green-800 mb-4">Hortaliças para Plantar</h2>
-              <p className="text-gray-600 italic mb-4">Carregando dados...</p>
-            </section>
-
-            <section className="bg-green-50 p-6 rounded-lg">
-              <h2 className="text-2xl font-semibold text-green-800 mb-4">Frutíferas para Plantar</h2>
-              <p className="text-gray-600 italic mb-4">Carregando dados...</p>
-            </section>
-
-            <section className="bg-orange-50 p-6 rounded-lg">
-              <h2 className="text-2xl font-semibold text-orange-800 mb-4">Época de Poda</h2>
-              <p className="text-gray-600 italic mb-4">Carregando dados...</p>
-            </section>
-          </div> */}
-          <Main/>
+          <Main dataHorta={dataHorta}/>
         </div>
       </div>
     </main>
