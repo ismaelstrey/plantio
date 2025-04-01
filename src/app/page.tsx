@@ -1,7 +1,5 @@
 'use client';
-
 import { Main } from '@/components/Main';
-import { Type } from '@/components/Main/Section';
 import { useState } from 'react';
 
 export default function Home() {
@@ -11,21 +9,7 @@ export default function Home() {
     'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
   ];
 
-  const dataHorta = [
-    {
-      title: 'Hortaliças para Plantar',
-      tipo: Type.HORTALICAS, 
-      children:<div>Ola</div>
-    } ,
-    {
-      title: 'Frutíferas para Plantar',
-      tipo: Type.FRUTIFERAS,  
-    },
-    {
-      title: 'Época de Poda',
-      tipo: Type.PODA,  
-    }
-  ]
+
 
   return (
     <main className="min-h-screen p-8 bg-green-50">
@@ -45,9 +29,8 @@ export default function Home() {
                 {month}
               </button>
             ))}
-          </div>
-
-          <Main dataHorta={dataHorta}/>
+          </div>        
+            <Main/>    
         </div>
       </div>
     </main>
