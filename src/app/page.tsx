@@ -1,5 +1,6 @@
 'use client';
 
+import { Main } from '@/components/Main';
 import { useState } from 'react';
 
 export default function Home() {
@@ -29,7 +30,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          {/* <div className="grid md:grid-cols-2 gap-8">
             <section className="bg-green-50 p-6 rounded-lg">
               <h2 className="text-2xl font-semibold text-green-800 mb-4">Hortaliças para Plantar</h2>
               <p className="text-gray-600 italic mb-4">Carregando dados...</p>
@@ -44,7 +45,8 @@ export default function Home() {
               <h2 className="text-2xl font-semibold text-orange-800 mb-4">Época de Poda</h2>
               <p className="text-gray-600 italic mb-4">Carregando dados...</p>
             </section>
-          </div>
+          </div> */}
+          <Main/>
         </div>
       </div>
     </main>
