@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Cultura {
+  id          Int      @id @default(autoincrement())
+  nome        String
+  tipo        String   // "hortalica" ou "frutifera"
+  descricao   String?
+  periodos    PeriodoPlantio[]
+  podas       Poda[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model PeriodoPlantio {
+  id          Int      @id @default(autoincrement())
+  culturaId   Int
+  cultura     Cultura  @relation(fields: [culturaId], references: [id])
+  mesInicio   Int      // 1-12 representando os meses do ano
+  mesFim      Int      // 1-12 representando os meses do ano
+  observacoes String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Poda {
+  id          Int      @id @default(autoincrement())
+  culturaId   Int
+  cultura     Cultura  @relation(fields: [culturaId], references: [id])
+  mesInicio   Int      // 1-12 representando os meses do ano
+  mesFim      Int      // 1-12 representando os meses do ano
+  tipo        String   // tipo de poda
+  observacoes String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
