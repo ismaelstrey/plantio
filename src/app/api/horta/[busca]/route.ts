@@ -5,19 +5,23 @@ const prisma = new PrismaClient();
 export async function GET(  request: NextRequest, { params }: { params: Promise<{ busca: string }> }) {
   const {busca} = await params;
 console.log(busca)
-  // Simula um delay para demonstrar o loading state
-  await new Promise(resolve => setTimeout(resolve, 500));
-
+const searchParams = request.nextUrl.searchParams;
+const mes = searchParams.get("mes")?.trim()|| undefined;
+const tipo = searchParams.get("tipo") || undefined;
+const filtros: any = {};
+if (mes) filtros.mes = mes;
+if (tipo) filtros.tipo = tipo;
   const numeroMesAtual = new Date().getMonth() + 1; // O mês começa em 0, então adicionamos 1
 
   // console.log(numeroMesAtual);
 
   const hortalicias = await prisma.cultura.findMany({
     where: {
+      tipo,
       periodos: {
         some: {
           mesInicio: {
-            lte: Number(busca) ||numeroMesAtual,
+            lte: Number(mes) ||numeroMesAtual,
           }
         },
       },
