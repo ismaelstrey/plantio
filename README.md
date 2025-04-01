@@ -72,7 +72,7 @@ npm run dev
 ## 🗄️ Estrutura do Banco de Dados
 
 ```mermaid
-ERDiagram
+erDiagram
     PLANTA ||--o{ PLANTIO : possui
     PLANTIO ||--o{ ATIVIDADE : registra
     PLANTA {
