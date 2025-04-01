@@ -1,13 +1,10 @@
-'use client';
+
 import { Main } from '@/components/Main';
-import { useState } from 'react';
+import { Meses } from '@/components/Meses';
+
 
 export default function Home() {
-  const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth() + 1);
-  const months = [
-    'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-    'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-  ];
+
 
 
 
@@ -17,19 +14,7 @@ export default function Home() {
         <h1 className="text-4xl font-bold text-green-800 mb-8">Calendário de Plantio - Igrejinha/RS</h1>
         
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <div className="grid grid-cols-6 gap-4 mb-6">
-            {months.map((month, index) => (
-              <button
-                key={month}
-                onClick={() => setSelectedMonth(index + 1)}
-                className={`p-3 rounded-lg text-center transition-colors ${selectedMonth === index + 1
-                  ? 'bg-green-600 text-white'
-                  : 'bg-green-100 text-green-800 hover:bg-green-200'}`}
-              >
-                {month}
-              </button>
-            ))}
-          </div>        
+    <Meses/>
             <Main/>    
         </div>
       </div>

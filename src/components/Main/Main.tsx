@@ -14,15 +14,15 @@ export function MainSection() {
         return <div className="text-center py-8 text-red-600">{error}</div>;
     }
 
+    // console.log(dataHorta); // Adicione esta linha para verificar os dados
+
     return (
         <div className="grid md:grid-cols-2 gap-8">
             {dataHorta.map((item, index) => (
                 <Section
                     key={index}
-                    title={item.title}
-                    tipo={item.tipo}
-                >
-                    {item.children}
+                {...item}
+                >               
                 </Section>
             ))}
         </div>

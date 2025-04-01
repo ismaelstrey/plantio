@@ -1,12 +1,12 @@
 'use client';
 
+import { Cultura } from '@/types/HortaIA';
+import {  useSearchParams } from 'next/navigation';
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { Type } from '@/components/Main/Section';
 
-interface PlantaData {
-  title: string;
-  tipo: Type;
-  children?: ReactNode;
+
+interface PlantaData  extends Cultura{
+  
 }
 
 interface HortaContextData {
@@ -21,12 +21,18 @@ export function HortaProvider({ children }: { children: ReactNode }) {
   const [dataHorta, setDataHorta] = useState<PlantaData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const param = useSearchParams()
+  const mesBusca = param.get('mes')
+const [mes,setMes] = useState<string | null>(mesBusca)
+ 
+
+  console.log()
 
   useEffect(() => {
     async function fetchHortaData() {
       try {
         // TODO: Substituir URL pela sua API real
-        const response = await fetch('/api/horta');
+        const response = await fetch(`/api/horta/${mes ? `${mes}`: ''}`);
         if (!response.ok) throw new Error('Falha ao carregar dados');
         const data = await response.json();
         setDataHorta(data);
@@ -36,9 +42,11 @@ export function HortaProvider({ children }: { children: ReactNode }) {
         setLoading(false);
       }
     }
+    console.log(mes)
    fetchHortaData();
+   setMes(mesBusca)
 
-  }, []);
+  }, [mes,mesBusca]);
 
 //   console.log(dataHorta) // Adicione esta linha para debugar a variáve
 
