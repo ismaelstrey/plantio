@@ -13,8 +13,6 @@ if (mes) filtros.mes = mes;
 if (tipo) filtros.tipo = tipo;
   const numeroMesAtual = new Date().getMonth() + 1; // O mês começa em 0, então adicionamos 1
 
-  // console.log(numeroMesAtual);
-
   const hortalicias = await prisma.cultura.findMany({
     where: {
       tipo,
