@@ -1,6 +1,7 @@
 'use client';
 
 import { Cultura } from '@/types/HortaIA';
+import axios from 'axios';
 import {  useSearchParams } from 'next/navigation';
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 interface PlantaData  extends Cultura{
@@ -24,10 +25,22 @@ const [tipo,setTipo] = useState<string | null>(tipoBusca)
   useEffect(() => {
     async function fetchHortaData() {
       try {  
-        const response = await fetch(`/api/horta/${mes ? `${mes}`: ''}${tipo? `&${tipo}`: ''}`);
-        if (!response.ok) throw new Error('Falha ao carregar dados');
-        const data = await response.json();
-        setDataHorta(data);
+        // const response = await fetch(`/api/horta/busca/${mes ? `${mes}`:''}${tipo ? `&${tipo}`:''}`);
+        // if (!response.ok) throw new Error('Falha ao carregar dados');
+        // const data = await response.json();
+
+        const buscaHotas = axios({
+          method: 'get',
+          url: `/api/horta/busca`,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          params:{
+            mes,
+            tipo
+          }
+        })
+        setDataHorta((await buscaHotas).data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Erro ao carregar dados');
       } finally {
@@ -35,6 +48,7 @@ const [tipo,setTipo] = useState<string | null>(tipoBusca)
       }
     }
     console.log(mes)
+    console.log(tipo)
    fetchHortaData();
    setMes(mesBusca)
    setTipo(tipoBusca)

@@ -12,7 +12,19 @@ const hortalicas = [
   { nome: 'Rabanete', descricao: 'Ciclo curto, ideal para entressafra' },
   { nome: 'Rúcula', descricao: 'Folhosa que tolera bem o clima local' },
   { nome: 'Espinafre', descricao: 'Ótimo desenvolvimento no inverno' },
-  { nome: 'Acelga', descricao: 'Adaptada ao clima subtropical' }
+  { nome: 'Acelga', descricao: 'Adaptada ao clima subtropical' },
+  { nome: 'Pimentão', descricao: 'Requer um clima úmido para desenvolvimento' },
+  { nome: 'Tomate', descricao: 'Requer um clima úmido para desenvolvimento'},
+  { nome: 'Abobora', descricao: 'Requer um clima úmido para desenvolvimento' },
+  { nome: 'Cebola', descricao: 'Requer um clima úmido para desenvolvimento' },
+  { nome: 'Couve-flor', descricao: 'Requer um clima úmido para desenvolvimento' },
+  { nome: 'Ervilha', descricao: 'Requer um clima úmido para desenvolvimento' },
+  { nome: 'Pepino', descricao: 'Requer um clima úmido para desenvolvimento' },
+  { nome: 'Alho-porro', descricao: 'Requer um clima úmido para desenvolvimento' },
+  { nome: 'Couve-flor', descricao: 'Requer um clima úmido para desenvolvimento' },
+  { nome: 'Ervilha', descricao: 'Requer um clima úmido para desenvolvimento' },
+
+
 ];
 
 const frutiferas = [
@@ -25,7 +37,14 @@ const frutiferas = [
   { nome: 'Uva', descricao: 'Cultivar adaptada à região' },
   { nome: 'Maçã', descricao: 'Requer horas de frio para produção' },
   { nome: 'Pera', descricao: 'Variedades adaptadas ao clima local' },
-  { nome: 'Mirtilo', descricao: 'Produção em expansão na região' }
+  { nome: 'Mirtilo', descricao: 'Produção em expansão na região' },
+  { nome: 'Melancia', descricao: 'Requer horas de frio para produção' },
+  { nome: 'Abacaxi', descricao: 'Requer horas de frio para produção' },
+  { nome: 'Laranja', descricao: 'Requer horas de frio para produção' },
+  { nome: 'Abacate', descricao: 'Requer horas de frio para produção' },
+  { nome: 'Morango', descricao: 'Requer horas de frio para produção' },
+  { nome: 'Limão', descricao: 'Requer horas de frio para produção' },
+
 ];
 
 async function main() {

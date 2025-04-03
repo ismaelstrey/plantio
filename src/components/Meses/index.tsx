@@ -18,7 +18,7 @@ export function Meses (){
         <div className="grid grid-cols-6 gap-4 mb-6">
         {months.map((month, index) => (
           <button
-            key={month}
+            key={index}
             onClick={() => handleMonthChange(index + 1)}
             className={`p-3 rounded-lg text-center transition-colors ${selectedMonth === index + 1
               ? 'bg-green-600 text-white'

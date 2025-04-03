@@ -1,5 +1,6 @@
 
 import { Main } from '@/components/Main';
+import MenuCulturas from '@/components/Menu/MenuCulturas';
 import { Meses } from '@/components/Meses';
 
 
@@ -14,6 +15,7 @@ export default function Home() {
         <h1 className="text-4xl font-bold text-green-800 mb-8">Calendário de Plantio - Igrejinha/RS</h1>
         
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+          <MenuCulturas/>
     <Meses/>
             <Main/>    
         </div>
